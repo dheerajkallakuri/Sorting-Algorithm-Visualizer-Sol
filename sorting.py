@@ -212,3 +212,24 @@ def quick_sort(nums):  # n^2
             _quick_sort(items, split_index + 1, high)
 
     _quick_sort(nums, 0, nums.get_len() - 1)
+
+def shell_sort(input_list):
+    
+    gap = input_list.get_len()//2
+    while gap > 0:
+
+        for i in range(gap, input_list.get_len()):
+            temp = input_list.values[i]
+            j = i
+# Sort the sub list for this gap
+
+            while j >= gap and input_list.values[j - gap] > temp:                
+                input_list.values[j] = input_list.values[j-gap]
+                j = j-gap
+            input_list.values[j] = temp
+
+# Reduce the gap for the next element
+
+        gap = gap//2
+
+
