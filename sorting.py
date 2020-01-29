@@ -219,12 +219,14 @@ def shell_sort(input_list):
     while gap > 0:
 
         for i in range(gap, input_list.get_len()):
+            
             temp = input_list.values[i]
             j = i
 # Sort the sub list for this gap
 
-            while j >= gap and input_list.values[j - gap] > temp:                
-                input_list.values[j] = input_list.values[j-gap]
+            while j >= gap and input_list.values[j - gap] > temp: 
+                input_list.swap(j,j-gap)               
+                #input_list.values[j] = input_list.values[j-gap]
                 j = j-gap
             input_list.values[j] = temp
 
